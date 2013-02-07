@@ -1,0 +1,22 @@
+<header class="row">
+    <h1>Require-Ember-Foundation Template</h1>
+    <nav>
+        <ul class="nav-bar">
+            {{#linkTo "index" tagName="li" href=false}}
+                {{#linkTo "index"}}Home{{/linkTo}}
+            {{/linkTo}}
+
+            {{#linkTo "about" tagName="li" href=false}}
+                {{#linkTo "about"}}About{{/linkTo}}
+            {{/linkTo}}
+        </ul>
+    </nav>
+</header>
+
+<div class="row">
+    {{outlet}}
+</div>
+
+<footer class="row">
+    &copy;2013 Code Crede
+</footer>
