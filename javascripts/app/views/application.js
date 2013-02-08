@@ -15,7 +15,6 @@ define([
 
        function () {
            return Ember.View.extend({
-                                        templateName:'appl',
                                         elementId   :'appView',
                                         classNames  :['twelve', 'columns']
                                     });

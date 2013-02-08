@@ -11,7 +11,6 @@
 
 requirejs.config({
                      shim:{
-
                          "foundation/jquery.cookie"                     :{ deps:["jquery"] },
                          "foundation/jquery.event.move"                 :{ deps:["jquery"] },
                          "foundation/jquery.event.swipe"                :{ deps:["jquery"] },
@@ -38,6 +37,7 @@ requirejs.config({
                      paths:{
                          jquery    :"foundation/jquery",
                          ember     :"libs/ember/ember-latest",
+                         emdata    :"libs/ember/ember-data-latest",
                          handlebars:"libs/ember/handlebars-latest",
                          text      :"libs/require/text"
                      },
@@ -50,6 +50,8 @@ requirejs(
     [
         "app/bootstrap",
         "jquery",
+        'handlebars',
+        'ember',
         "foundation/jquery.cookie",
         "foundation/jquery.event.move",
         "foundation/jquery.event.swipe",

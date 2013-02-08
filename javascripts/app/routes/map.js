@@ -18,6 +18,9 @@ define([
        function () {
            return function () {
                this.route('about');
+               this.resource('tables', function () {
+                   this.resource('table', {path:':table_id'});
+               });
            };
        }
 );
