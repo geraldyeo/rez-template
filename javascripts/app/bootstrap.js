@@ -24,7 +24,9 @@ define([
                // Ember App
                $.extend(Ember.TEMPLATES, templatesObj);
 
-               var App = window.MyApp = Ember.Application.create();
+               var App = window.App = Ember.Application.create({
+                                                                     rootElement:'#app'
+                                                                 });
 
                // Routes
                App.Router.map(routesMappings);
@@ -48,9 +50,29 @@ define([
                                                                        sortProperties:['id']
                                                                    });
 
-               App.FoodController = Ember.ArrayController.extend();
+               App.FoodController = Ember.ArrayController.extend({
+                                                                     addFood:function (food) {
+                                                                         var table = this.controllerFor('table').get('model'),
+                                                                             tabItems = table.get('tab.tabItems');
 
-               App.TabController = Ember.ObjectController.extend();
+                                                                         tabItems.createRecord({
+                                                                                                   food :food,
+                                                                                                   cents:food.get('cents')
+                                                                                               });
+                                                                     }
+                                                                 });
+
+               //App.TabController = Ember.ObjectController.extend();
+
+               // Handlebars Helpers
+               Ember.Handlebars.registerBoundHelper('money', function (value) {
+                   if (isNaN(value)) {
+                       return "0.00";
+                   }
+                   return (value % 100 === 0 ?
+                           value / 100 + ".00" :
+                           parseInt(value / 100, 10) + "." + value % 100);
+               });
 
                // Models
                App.Store = DS.Store.extend({
