@@ -11,6 +11,8 @@
 
 requirejs.config({
                      shim:{
+                         "ember"                                        :{ deps:["jquery", "handlebars"] },
+                         "emdata"                                       :{ deps:["ember"] },
                          "foundation/jquery.cookie"                     :{ deps:["jquery"] },
                          "foundation/jquery.event.move"                 :{ deps:["jquery"] },
                          "foundation/jquery.event.swipe"                :{ deps:["jquery"] },
@@ -36,9 +38,9 @@ requirejs.config({
 
                      paths:{
                          jquery    :"foundation/jquery",
+                         handlebars:"libs/ember/handlebars-latest",
                          ember     :"libs/ember/ember-latest",
                          emdata    :"libs/ember/ember-data-latest",
-                         handlebars:"libs/ember/handlebars-latest",
                          text      :"libs/require/text"
                      },
 
@@ -48,10 +50,11 @@ requirejs.config({
 
 requirejs(
     [
-        "app/bootstrap",
         "jquery",
         'handlebars',
         'ember',
+        'emdata',
+        "app/bootstrap",
         "foundation/jquery.cookie",
         "foundation/jquery.event.move",
         "foundation/jquery.event.swipe",
@@ -73,7 +76,7 @@ requirejs(
         "foundation/jquery.placeholder"
     ],
 
-    function (appInit, $) {
+    function ($, hbs, em, emdata, appInit) {
         (function ($, window, undefined) {
             var $doc = $(document),
                 Modernizr = window.Modernizr;

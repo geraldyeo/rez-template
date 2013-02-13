@@ -24,15 +24,12 @@ define([
                // Ember App
                $.extend(Ember.TEMPLATES, templatesObj);
 
-               var App = window.MyApp = Ember.Application.create({
-                                                                     VERSION        :'1.0',
-                                                                     rootElement    :'#app',
-                                                                     ApplicationView:AppView
-                                                                 });
+               var App = window.MyApp = Ember.Application.create();
 
                // Routes
                App.Router.map(routesMappings);
 
+               // setup controllers which are not routable...
                App.ApplicationRoute = Ember.Route.extend({
                                                              setupController:function () {
                                                                  this.controllerFor('food').set('model', App.Food.find());
@@ -46,7 +43,14 @@ define([
                                                     });
 
                // Controllers
+               // Implement explicitly to use the object proxy.
+               App.TablesController = Ember.ArrayController.extend({
+                                                                       sortProperties:['id']
+                                                                   });
+
                App.FoodController = Ember.ArrayController.extend();
+
+               App.TabController = Ember.ObjectController.extend();
 
                // Models
                App.Store = DS.Store.extend({
@@ -59,7 +63,16 @@ define([
                                            });
 
                App.Tab = DS.Model.extend({
-                                             tabItems:DS.hasMany('App.TabItem')
+                                             tabItems:DS.hasMany('App.TabItem'),
+                                             cents   :function () {
+                                                 return this.get('tabItems').getEach('cents').reduce(function (accum, item) {
+                                                     return accum + item;
+                                                 }, 0);
+                                             }.property('tabItems.@each.cents'),
+
+                                             didLoad:function () {
+                                                 console.log('Tab DidLoad');
+                                             }
                                          });
 
                App.TabItem = DS.Model.extend({

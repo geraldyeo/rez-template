@@ -17,13 +17,14 @@ define([
            'text!app/templates/page-tables-index.hbs',
            'text!app/templates/sect-tables-table.hbs',
            'text!app/templates/sect-tables-food.hbs',
+           'text!app/templates/sect-tables-tab.hbs',
            'text!app/templates/partials/table-menu.hbs',
            'jquery',
            'handlebars',
            'ember'
        ],
 
-       function (app_tpl, mainPage_tpl, aboutPage_tpl, tablesPage_tpl, tablesIndex_tpl, tableSect_tpl, foodSect_tpl, tableMenu_part) {
+       function (app_tpl, mainPage_tpl, aboutPage_tpl, tablesPage_tpl, tablesIndex_tpl, tableSect_tpl, foodSect_tpl, tabSect_tpl, tableMenu_part) {
            return {
                // pages
                "application" :Ember.Handlebars.compile(app_tpl),
@@ -35,6 +36,7 @@ define([
                "tables/index":Ember.Handlebars.compile(tablesIndex_tpl),
                "table"       :Ember.Handlebars.compile(tableSect_tpl),
                "food"        :Ember.Handlebars.compile(foodSect_tpl),
+               "tab"         :Ember.Handlebars.compile(tabSect_tpl),
 
                // partials
                "_tableMenu"  :Ember.Handlebars.compile(tableMenu_part)
