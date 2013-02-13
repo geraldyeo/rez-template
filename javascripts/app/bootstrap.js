@@ -62,6 +62,7 @@ define([
                                                                      }
                                                                  });
 
+               // AUTOGEN
                //App.TabController = Ember.ObjectController.extend();
 
                // Handlebars Helpers
@@ -90,11 +91,7 @@ define([
                                                  return this.get('tabItems').getEach('cents').reduce(function (accum, item) {
                                                      return accum + item;
                                                  }, 0);
-                                             }.property('tabItems.@each.cents'),
-
-                                             didLoad:function () {
-                                                 console.log('Tab DidLoad');
-                                             }
+                                             }.property('tabItems.@each.cents')
                                          });
 
                App.TabItem = DS.Model.extend({

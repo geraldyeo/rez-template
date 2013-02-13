@@ -1,8 +1,12 @@
 <ul id="menu">
     {{#each food in controller}}
         <li>
-            <img {{ bindAttr src="food.imageUrl" alt="food.name" }}>
-            <p>{{ food.name }}</p>
+            <!-- this refers to the 'food' -->
+            <a href="#" {{ action "addFood" food }}>
+                <img {{ bindAttr src="food.imageUrl" alt="food.name" }}>
+
+                <p>{{ food.name }}</p>
+            </a>
         </li>
     {{/each}}
 </ul>
