@@ -25,8 +25,9 @@ define([
                $.extend(Ember.TEMPLATES, templatesObj);
 
                var App = window.App = Ember.Application.create({
-                                                                     rootElement:'#app'
-                                                                 });
+                                                                   rootElement    :'#app',
+                                                                   ApplicationView:AppView
+                                                               });
 
                // Routes
                App.Router.map(routesMappings);
