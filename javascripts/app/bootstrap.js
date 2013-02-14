@@ -21,15 +21,16 @@ define([
 
        function (AppView, routesMappings, templatesObj) {
            return function (window) {
-               // Ember App
+               //////////////////// Ember Templates ////////////////////
                $.extend(Ember.TEMPLATES, templatesObj);
 
+               //////////////////// Ember App ////////////////////
                var App = window.App = Ember.Application.create({
                                                                    rootElement    :'#app',
                                                                    ApplicationView:AppView
                                                                });
 
-               // Routes
+               //////////////////// Routes ////////////////////
                App.Router.map(routesMappings);
 
                // setup controllers which are not routable...
@@ -45,7 +46,8 @@ define([
                                                         }
                                                     });
 
-               // Controllers
+               //////////////////// Controllers ////////////////////
+
                // Implement explicitly to use the object proxy.
                App.TablesController = Ember.ArrayController.extend({
                                                                        sortProperties:['id']
@@ -64,6 +66,7 @@ define([
                                                                  });
 
                // AUTOGEN
+               //App.TableController = Ember.ObjectController.extend();
                //App.TabController = Ember.ObjectController.extend();
 
                // Handlebars Helpers
@@ -76,7 +79,7 @@ define([
                            parseInt(value / 100, 10) + "." + value % 100);
                });
 
-               // Models
+               //////////////////// Models ////////////////////
                App.Store = DS.Store.extend({
                                                revision:11,
                                                adapter :'DS.FixtureAdapter'
@@ -106,6 +109,7 @@ define([
                                               cents   :DS.attr('number')
                                           });
 
+               // data placeholder
                App.Table.FIXTURES = [
                    {
                        id :1,
