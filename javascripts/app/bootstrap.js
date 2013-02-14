@@ -12,17 +12,17 @@
 define([
            'app/views/application',
            'app/routes/map',
-           'app/templates/template',
+           'app/templates/map',
            'jquery',
            'handlebars',
            'ember',
            'emdata'
        ],
 
-       function (AppView, routesMappings, templatesObj) {
+       function (AppView, mapRoutes, mapTemplates) {
            return function (window) {
                //////////////////// Ember Templates ////////////////////
-               $.extend(Ember.TEMPLATES, templatesObj);
+               mapTemplates();
 
                //////////////////// Ember App ////////////////////
                var App = window.App = Ember.Application.create({
@@ -31,20 +31,7 @@ define([
                                                                });
 
                //////////////////// Routes ////////////////////
-               App.Router.map(routesMappings);
-
-               // setup controllers which are not routable...
-               App.ApplicationRoute = Ember.Route.extend({
-                                                             setupController:function () {
-                                                                 this.controllerFor('food').set('model', App.Food.find());
-                                                             }
-                                                         });
-
-               App.TablesRoute = Ember.Route.extend({
-                                                        model:function () {
-                                                            return App.Table.find();
-                                                        }
-                                                    });
+               mapRoutes(App);
 
                //////////////////// Controllers ////////////////////
 

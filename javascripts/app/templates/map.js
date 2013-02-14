@@ -25,21 +25,25 @@ define([
        ],
 
        function (app_tpl, mainPage_tpl, aboutPage_tpl, tablesPage_tpl, tablesIndex_tpl, tableSect_tpl, foodSect_tpl, tabSect_tpl, tableMenu_part) {
-           return {
-               //////////////////// Pages ////////////////////
-               "application" :Ember.Handlebars.compile(app_tpl),
-               "index"       :Ember.Handlebars.compile(mainPage_tpl),
-               "about"       :Ember.Handlebars.compile(aboutPage_tpl),
-               "tables"      :Ember.Handlebars.compile(tablesPage_tpl),
+           return function () {
+               $.extend(Ember.TEMPLATES,
+                        {
+                            //////////////////// Pages ////////////////////
+                            "application" :Ember.Handlebars.compile(app_tpl),
+                            "index"       :Ember.Handlebars.compile(mainPage_tpl),
+                            "about"       :Ember.Handlebars.compile(aboutPage_tpl),
+                            "tables"      :Ember.Handlebars.compile(tablesPage_tpl),
 
-               //////////////////// Sections ////////////////////
-               "tables/index":Ember.Handlebars.compile(tablesIndex_tpl),
-               "table"       :Ember.Handlebars.compile(tableSect_tpl),
-               "food"        :Ember.Handlebars.compile(foodSect_tpl),
-               "tab"         :Ember.Handlebars.compile(tabSect_tpl),
+                            //////////////////// Sections ////////////////////
+                            "tables/index":Ember.Handlebars.compile(tablesIndex_tpl),
+                            "table"       :Ember.Handlebars.compile(tableSect_tpl),
+                            "food"        :Ember.Handlebars.compile(foodSect_tpl),
+                            "tab"         :Ember.Handlebars.compile(tabSect_tpl),
 
-               //////////////////// Partials ////////////////////
-               "_tableMenu"  :Ember.Handlebars.compile(tableMenu_part)
+                            //////////////////// Partials ////////////////////
+                            "_tableMenu"  :Ember.Handlebars.compile(tableMenu_part)
+                        }
+               );
            };
        }
 );
