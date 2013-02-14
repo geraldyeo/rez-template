@@ -1,5 +1,11 @@
+# invisible dir
 .DS_Store
 .idea
 .sass-cache
 
-bourbon
+# dir
+bourbon/
+stylesheets/
+
+# files
+*-ck*
