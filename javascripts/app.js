@@ -10,6 +10,16 @@
  */
 
 requirejs.config({
+                     baseUrl:"javascripts",
+
+                     paths:{
+                         jquery    :"foundation/jquery",
+                         handlebars:"libs/ember/handlebars-latest",
+                         ember     :"libs/ember/ember-latest",
+                         emdata    :"libs/ember/ember-data-latest",
+                         text      :"libs/require/text"
+                     },
+
                      shim:{
                          "ember"                                        :{ deps:["jquery", "handlebars"] },
                          "emdata"                                       :{ deps:["ember"] },
@@ -32,20 +42,7 @@ requirejs.config({
                          "foundation/jquery.foundation.topbar"          :{ deps:["jquery"] },
                          "foundation/jquery.offcanvas"                  :{ deps:["jquery"] },
                          "foundation/jquery.placeholder"                :{ deps:["jquery"] }
-                     },
-
-                     baseUrl:"javascripts",
-
-                     paths:{
-                         jquery    :"foundation/jquery",
-                         handlebars:"libs/ember/handlebars-latest",
-                         ember     :"libs/ember/ember-latest",
-                         emdata    :"libs/ember/ember-data-latest",
-                         text      :"libs/require/text"
-                     },
-
-                     name:"app",
-                     out :"app.min.js"
+                     }
                  });
 
 requirejs(

@@ -2,4 +2,6 @@
 ###################
 bourbon/
 stylesheets/
+node_modules/
+built/
 *-ck*
