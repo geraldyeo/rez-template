@@ -33,12 +33,12 @@
     //in a separate configuration, set this property to the location of that
     //main JS file. The first requirejs({}), require({}), requirejs.config({}),
     //or require.config({}) call found in that file will be used.
-    mainConfigFile:'./javascripts/app.js',
+    mainConfigFile:'./javascripts/app/main.js',
 
     //The directory path to save the output. If not specified, then
     //the path will default to be a directory called "build" as a sibling
     //to the build file. All relative paths are relative to the build file.
-    dir           :'./built',
+    dir           :'./deploy',
 
     //How to optimize all the JS files in the build output directory.
     //Right now only the following values

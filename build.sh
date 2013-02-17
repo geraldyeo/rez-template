@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_DIR_NAME='built'
+BUILD_DIR_NAME='deploy'
 
 clear
 echo "Building..."

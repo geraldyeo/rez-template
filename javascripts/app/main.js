@@ -10,14 +10,20 @@
  */
 
 requirejs.config({
-                     baseUrl:"javascripts",
+                     baseUrl:"./javascripts",
 
                      paths:{
-                         jquery    :"foundation/jquery",
-                         handlebars:"libs/ember/handlebars-latest",
-                         ember     :"libs/ember/ember-latest",
-                         emdata    :"libs/ember/ember-data-latest",
-                         text      :"libs/require/text"
+                         // Core
+                         jquery      :"libs/foundation/jquery",
+                         handlebars  :"libs/ember/handlebars-latest",
+                         ember       :"libs/ember/ember-latest",
+                         emdata      :"libs/ember/ember-data-latest",
+
+                         // Plugins
+                         text        :"libs/require/text",
+
+                         // Folders
+                         "foundation":"libs/foundation"
                      },
 
                      shim:{
@@ -73,7 +79,7 @@ requirejs(
         "foundation/jquery.placeholder"
     ],
 
-    function ($, hbs, em, emdata, appInit) {
+    function ($, hbs, em, ds, bootstrap) {
         (function ($, window, undefined) {
             var $doc = $(document),
                 Modernizr = window.Modernizr;
@@ -93,7 +99,7 @@ requirejs(
                 $.fn.placeholder ? $('input, textarea').placeholder() : null;
 
                 // initialize app
-                appInit(window);
+                bootstrap(window);
             });
 
             // UNCOMMENT THE LINE YOU WANT BELOW IF YOU WANT IE8 SUPPORT AND ARE USING .block-grids
