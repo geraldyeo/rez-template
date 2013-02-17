@@ -3,5 +3,5 @@
 bourbon/
 stylesheets/
 node_modules/
-built/
+deploy/
 *-ck*

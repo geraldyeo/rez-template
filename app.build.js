@@ -71,7 +71,7 @@
     //only the root bundles will be included unless the locale: section is set above.
     modules:[
         {
-            name   :'app',
+            name   :'app/main',
             exclude:['jquery', 'handlebars', 'ember', 'emdata', 'text']
         }
     ],
